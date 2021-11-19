@@ -26,6 +26,7 @@ angular.module('index').controller('indexController', ['$scope', '$injector',
     // Required services
     const $document         = $injector.get('$document');
     const $route            = $injector.get('$route');
+    const $location         = $injector.get('$location');
     const $window           = $injector.get('$window');
     const clipboardService  = $injector.get('clipboardService');
     const guacNotification  = $injector.get('guacNotification');
@@ -226,6 +227,7 @@ angular.module('index').controller('indexController', ['$scope', '$injector',
      */
     $scope.reAuthenticate = function reAuthenticate() {
         $scope.reAuthenticating = true;
+        $location.url('/');
         $route.reload();
     };
 
